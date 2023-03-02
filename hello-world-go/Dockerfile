@@ -1,7 +1,7 @@
-#from golang
+from golang
 
-#WORKDIR /app
+WORKDIR /app
 
-#copy bin/hello
+copy bin/hello .
 
-#CMD 
+CMD ["/app/hello"]
