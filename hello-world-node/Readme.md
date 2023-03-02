@@ -4,7 +4,7 @@
 
 
 1. Initialize a new Node.js project with npm:
-```npm install``
+```npm install```
 
 ```npm init```
 
