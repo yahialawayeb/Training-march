@@ -12,6 +12,9 @@ To run an existing Angular application using this Docker image, you'll need to m
 
 ```ng new my-app``` 
 
+```ng build```
+
+```ng serve --host=0.0.0.0```
 
 
 This command starts a new Docker container based on the ange10k/angularcli image, maps port 4200 in the container to port 4200 on the host system, and mounts the directory containing your Angular application as a volume in the container.
