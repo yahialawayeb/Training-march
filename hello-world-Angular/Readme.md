@@ -7,8 +7,10 @@ To use this Docker image, you'll need to have Docker installed on your local mac
 # Running an Angular Application
 To run an existing Angular application using this Docker image, you'll need to mount the application directory as a volume in the Docker container. Here's an example command:
 
-```docker run --rm -it -p 4200:4200 -v /path/to/your/app:/app ange10k/angularcli```
+```docker run --rm -it -p 4200:4200 -v /path/to/your/app:/app ange10k/angularcli``` OR ```docker run -p 8080:80 bbacem/hello-angular```
 
 ```ng new my-app``` 
+
+
 
 This command starts a new Docker container based on the ange10k/angularcli image, maps port 4200 in the container to port 4200 on the host system, and mounts the directory containing your Angular application as a volume in the container.
