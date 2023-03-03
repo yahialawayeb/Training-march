@@ -1,0 +1,20 @@
+# Specify the base image
+FROM ruby:2.7.4
+
+# Set the working directory in the container
+WORKDIR /code
+
+# Copy the application code to the container
+COPY Gemfile Gemfile.lock ./
+
+# Install the required gems
+RUN gem install bundler:2.4.6
+RUN bundle install
+
+# Expose the port that the application will listen on
+EXPOSE 8080
+
+# Start the application when the container starts
+CMD ["ruby", "server.rb"]
+
+
