@@ -16,7 +16,7 @@ This is a simple V language application that prints "Hello, World!" to the conso
 
 4. Run the Docker container for the project by running the following command:
 
-docker run --rm hello-vlang
+```docker run --rm hello-vlang```
 
 This should output "Hello, World!" to the console.
 
