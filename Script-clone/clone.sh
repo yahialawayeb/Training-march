@@ -16,7 +16,6 @@ else
     
 fi
 
-
 # Loop through all files in the cloned repository
 find $LOCAL_DIR -type f | while read file
 
@@ -30,7 +29,7 @@ do
         # Execute the curl command with the $content variable
         response=$(curl -sS https://api.openai.com/v1/chat/completions \
         -H 'Content-Type: application/json' \
-        -H 'Authorization: Bearer '$token \
+        -H 'Authorization: Bearer '$token' \
         -d "{
         \"model\": \"gpt-3.5-turbo\",
         \"messages\": [{\"role\": \"user\", \"content\": $escaped_content}]
@@ -41,6 +40,6 @@ do
         content=$(echo $response | jq '.choices[0].message.content')
 
         # Replace escaped newlines with actual line breaks using sed
-        echo -e $content | sed 's/\\n/\n/g' > $filename+"-chatgpt".txt
+        echo -e $content | sed 's/\\n/\n/g' > $LOCAL_DIR/$filename"-chatgpt".txt
     
 done
