@@ -1,19 +1,28 @@
 <?php
-require 'vendor/autoload.php';
-
 // Connect to the MongoDB server
-$mongoClient = new MongoDB\Client("mongodb://localhost:27017");
+$mongo = new MongoDB\Driver\Manager("mongodb://10.0.0.100:27017");
 
-// Select the database
-$database = $mongoClient->selectDatabase("DB_training");
+// Select the database and collection
+$database = "test";
+$collection = "countries";
 
-// Select the collection
-$collection = $database->selectCollection("Country");
+// Construct the query
+$query = new MongoDB\Driver\Query([]);
 
-// Insert a document
-$insertResult = $collection->insertOne([{    "name": "United States",    "capital": "Washington, D.C.",    "population": 328200000,    "currency": "US Dollar"  },  {    "name": "Canada",    "capital": "Ottawa",    "population": 37960000,    "currency": "Canadian Dollar"  },  {    "name": "Mexico",    "capital": "Mexico City",    "population": 126200000,    "currency": "Mexican Peso"  }]
-);
+// Execute the query
+$countries = $mongo->executeQuery("$database.$collection", $query);
 
-// Print the result
-echo "Inserted document with ID: " . $insertResult->getInsertedId();
+// Loop through the list of countries and output each one
+// Output a table header
+echo "<table>";
+echo "<tr><th>Name</th><th>Capital</th><th>Population</th><th>Currency</th></tr>";
+foreach ($countries as $country) {
+    echo "<tr>";
+    echo "<td>" . $country->name . "</td>";
+    echo "<td>" . $country->capital . "</td>";
+    echo "<td>" . $country->population . "</td>";
+    echo "<td>" . $country->currency . "</td>";
+    echo "</tr>";
+}
+"</table>";
 ?>
