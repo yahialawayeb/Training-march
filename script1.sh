@@ -14,6 +14,7 @@ cd $ROOT && zip -r source.zip . -x@${EXCLUDE_FILE}
 
 # Encrypt the zip file using openssl
 read -s -p "Enter password to encrypt the zip file: " PASSWORD
+
 openssl enc -aes-256-cbc -salt -in source.zip -out source.zip.enc -pass pass:$PASSWORD
 
 # Prompt the user to enter the recipient's email address
