@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # GitHub username
 USERNAME="yahialawayeb"
 
