@@ -3,13 +3,25 @@
 # Load configuration from file
 source config.sh
 
+# Prompt the user for input
+read -p "Do you want to clone the private or public repository? (p or pub): " REPO_TYPE
+
 # Clone the repository to the local directory
-git clone "http://$USERNAME:$SSHTOKEN@github.com/$USERNAME/$REPO.git" $LOCAL_DIR
+if [ "$REPO_TYPE" == "p" ]; then
+    # Clone the private repository to the local directory
+    git clone "http://$USERNAME:$SSHTOKEN@github.com/$USERNAME/$REPO.git" $LOCAL_DIR
+else
+    # Clone the public repository to the local directory
+    git clone "http://github.com/$USERNAME/$REPO.git" $LOCAL_DIR
+    
+fi
+
 
 # Loop through all files in the cloned repository
 find $LOCAL_DIR -type f | while read file
 
-do           
+do
+        filename=$(basename $file)           
         content=$(cat $file)
 
         # Escape the content variable using jq
@@ -29,6 +41,6 @@ do
         content=$(echo $response | jq '.choices[0].message.content')
 
         # Replace escaped newlines with actual line breaks using sed
-        echo -e $content | sed 's/\\n/\n/g' > result.txt
+        echo -e $content | sed 's/\\n/\n/g' > $filename+"-chatgpt".txt
     
 done
