@@ -20,3 +20,7 @@ To use any of the projects, simply navigate to its folder and follow the instruc
 
 # License
 This repository is licensed under the MIT License.
+
+# Roadmap
+
+<img width="2096" alt="Screen Shot 2023-03-08 at 12 00 12 PM" src="https://user-images.githubusercontent.com/45715626/223696691-fba6888f-c591-46b3-9038-b9af01314fd8.png">
