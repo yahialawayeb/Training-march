@@ -1,0 +1,23 @@
+# Use the official PHP image
+FROM php:latest
+
+# Install the MongoDB extension for PHP
+RUN pecl install mongodb \
+    && docker-php-ext-enable mongodb
+
+# Install necessary packages for MongoDB
+RUN apt-get update \
+    && apt-get install -y \
+    libcurl4-openssl-dev \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY php.ini /usr/local/etc/php/
+
+
+# Copy PHP file to web root
+COPY index.php /var/www/html/
+
+# Expose the default port for MongoDB
+EXPOSE 80
+

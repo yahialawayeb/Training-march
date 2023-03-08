@@ -1,0 +1,12 @@
+# Uncomment this line if you're using a version of Ruby other than 2.7.4
+# ruby '2.7.4'
+
+source 'https://rubygems.org'
+
+# Add your gem dependencies below this line
+gem 'sinatra'
+
+# Use the latest version of the JSON library
+gem 'json'
+
+gem 'puma' 

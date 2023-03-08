@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot Example</title>
+  </head>
+  <body>
+    <h1>Chatbot Example</h1>
+    <form id="chat-form">
+      <label for="prompt">Prompt:</label>
+      <input type="text" name="prompt" id="prompt">
+      <button type="submit">Send</button>
+    </form>
+    <div id="chat-log"></div>
+    <script>
+      const form = document.getElementById('chat-form');
+      const log = document.getElementById('chat-log');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const prompt = document.getElementById('prompt').value;
+        const response = await fetch('/chat', {
+          method: 'POST',
+          body: new URLSearchParams({
+            'prompt': prompt,
+          })
+        });
+        const json = await response.json();
+        const message = json.response;
+
+        const promptNode = document.createElement('div');
+        promptNode.innerHTML = `Human: ${prompt}`;
+
+        const responseNode = document.createElement('div');
+        responseNode.innerHTML = `AI: ${message}`;
+
+        log.appendChild(promptNode);
+        log.appendChild(responseNode);
+      });
+    </script>
+  </body>
+</html>
