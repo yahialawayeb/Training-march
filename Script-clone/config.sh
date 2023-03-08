@@ -1,9 +1,9 @@
 # GitHub username
-USERNAME="yahialawayeb"
+USERNAME="myusername"
 
 # Repository name
-REPO="Training-march"
+REPO="myrepo"
 
 token=""
 # Local directory name
-LOCAL_DIR="/Users/yehya/Documents/Training-march-dir/Clone-Training"
+LOCAL_DIR="/path/to/local"
