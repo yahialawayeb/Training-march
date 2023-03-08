@@ -30,15 +30,12 @@ class TestTest1():
         self.driver.get("https://app.novafi.xyz/")
         self.driver.set_window_size(2560, 1330)
         self.driver.find_element(By.CSS_SELECTOR, ".btn").click()
-        time.sleep(2)
         self.driver.find_element(
             By.CSS_SELECTOR, ".btn:nth-child(4) > span").click()
-        time.sleep(2)
+
         self.driver.find_element(
             By.CSS_SELECTOR, ".modalWalletNotFound > .fas").click()
-        time.sleep(2)
         self.vars["window_handles"] = self.driver.window_handles
         self.driver.find_element(By.CSS_SELECTOR, ".btn:nth-child(5)").click()
-        time.sleep(2)
         self.vars["win3175"] = self.wait_for_window(2000)
         self.driver.switch_to.window(self.vars["win3175"])
