@@ -24,7 +24,8 @@ Install pip: pip is a package installer for Python. If you have Python 3.4 or la
 ```python3 -m pytest nova.py```
 
 
-Application URL: https://example.com/login
+Application URL: https://app.novafi.xyz/#/
+
 # Successful Test
 # Results
 
