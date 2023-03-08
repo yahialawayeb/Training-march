@@ -32,6 +32,8 @@ Application URL: https://app.novafi.xyz/#/
 https://user-images.githubusercontent.com/45715626/223741469-49d3ff33-bb25-4ae3-96cc-c8ca53313a2d.mov
 
 
+If the tests are successful, you will see output similar to the following in the terminal:
+
 
 <img width="1145" alt="Screen Shot 2023-03-08 at 3 21 42 PM" src="https://user-images.githubusercontent.com/45715626/223737601-3b313b22-0b0a-4b38-a245-cb66b504e323.png">
 
